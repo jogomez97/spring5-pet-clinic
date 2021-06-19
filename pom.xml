@@ -16,7 +16,7 @@
 
     <groupId>jgomez.springframework</groupId>
     <artifactId>spring5-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>spring5-pet-clinic</name>
     <description>Demo project for Spring Boot</description>
 

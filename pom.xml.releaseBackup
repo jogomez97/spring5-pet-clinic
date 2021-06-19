@@ -11,12 +11,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.1</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>jgomez.springframework</groupId>
     <artifactId>spring5-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>spring5-pet-clinic</name>
     <description>Demo project for Spring Boot</description>
 
@@ -49,8 +49,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:jogomez97/spring5-pet-clinic.git</developerConnection>
-      <tag>spring5-pet-clinic-0.0.1</tag>
-  </scm>
+        <developerConnection>scm:git:git@github.com:jogomez97/spring5-pet-clinic.git/tags/spring5-pet-clinic-0.0.1</developerConnection>
+    </scm>
 
 </project>

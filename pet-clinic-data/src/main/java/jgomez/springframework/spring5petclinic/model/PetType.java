@@ -6,7 +6,7 @@ package jgomez.springframework.spring5petclinic.model;
  * @author Joan Gomez
  * @version 1.0
  **/
-public class PetType {
+public class PetType extends BaseEntity {
 
     private String name;
 

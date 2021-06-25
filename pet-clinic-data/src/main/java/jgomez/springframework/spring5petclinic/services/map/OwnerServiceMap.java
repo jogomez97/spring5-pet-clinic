@@ -2,6 +2,7 @@ package jgomez.springframework.spring5petclinic.services.map;
 
 import jgomez.springframework.spring5petclinic.model.Owner;
 import jgomez.springframework.spring5petclinic.services.CrudService;
+import jgomez.springframework.spring5petclinic.services.OwnerService;
 
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
  * @author Joan Gomez
  * @version 1.0
  **/
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -35,5 +36,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

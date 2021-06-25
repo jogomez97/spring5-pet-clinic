@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Class jgomez.springframework.spring5petclinic.Spring5PetClinicApplication
+ * Class Spring5PetClinicApplication
  *
  * @author Joan Gomez
  * @version 1.0

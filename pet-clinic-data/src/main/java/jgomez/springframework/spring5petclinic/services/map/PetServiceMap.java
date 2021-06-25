@@ -2,6 +2,7 @@ package jgomez.springframework.spring5petclinic.services.map;
 
 import jgomez.springframework.spring5petclinic.model.Pet;
 import jgomez.springframework.spring5petclinic.services.CrudService;
+import jgomez.springframework.spring5petclinic.services.PetService;
 
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
  * @author Joan Gomez
  * @version 1.0
  **/
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();

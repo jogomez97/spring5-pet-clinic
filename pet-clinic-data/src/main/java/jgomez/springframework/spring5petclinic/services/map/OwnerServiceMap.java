@@ -3,6 +3,7 @@ package jgomez.springframework.spring5petclinic.services.map;
 import jgomez.springframework.spring5petclinic.model.Owner;
 import jgomez.springframework.spring5petclinic.services.CrudService;
 import jgomez.springframework.spring5petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -12,6 +13,7 @@ import java.util.Set;
  * @author Joan Gomez
  * @version 1.0
  **/
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {

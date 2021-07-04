@@ -54,18 +54,19 @@ jobs:
           name: Package
           path: staging
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: 0.0.3
-          release_name: Release 0.0.3
+          tag_name: 0.0.4
+          release_name: Release 0.0.4
       - name: Upload release artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./staging/Package.zip
           asset_name: Package.zip
           asset_content_type: application/zip

@@ -49,11 +49,6 @@ jobs:
       - name: Build and package with Maven
         run: mvn -B clean package --file pom.xml -Dmaven.test.skip=true
       - run: mkdir staging && cp **/target/*.jar staging
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: staging
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -62,14 +57,16 @@ jobs:
         with:
           tag_name: 0.0.6
           release_name: Release 0.0.6
-      - run: ls
-      - run: cd staging && ls && cd ..
+      - name: Zip artifact
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r Artifact.zip staging
       - name: Upload release artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: staging/Package
-          asset_name: Package
+          asset_path: Artifact.zip
+          asset_name: Artifact.zip
           asset_content_type: application/zip

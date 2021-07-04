@@ -1,11 +1,11 @@
 package jgomez.springframework.spring5petclinic.bootstrap;
 
 import jgomez.springframework.spring5petclinic.model.Owner;
+import jgomez.springframework.spring5petclinic.model.PetType;
 import jgomez.springframework.spring5petclinic.model.Vet;
 import jgomez.springframework.spring5petclinic.services.OwnerService;
+import jgomez.springframework.spring5petclinic.services.PetTypeService;
 import jgomez.springframework.spring5petclinic.services.VetService;
-import jgomez.springframework.spring5petclinic.services.map.OwnerServiceMap;
-import jgomez.springframework.spring5petclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,14 +20,25 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);     // store the object with auto-generated ID
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Joan");
         owner1.setLastName("Gomez");

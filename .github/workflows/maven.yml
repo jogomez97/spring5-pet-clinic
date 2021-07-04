@@ -40,6 +40,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Cache Maven packages to speed up build
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml')}}
+          restore-keys: ${{ runner.os }}-m2
       - name: Build and package with Maven
         run: mvn -B clean package --file pom.xml -Dmaven.test.skip=true
       - run: mkdir staging && cp **/target/*.jar staging
@@ -47,3 +53,10 @@ jobs:
         with:
           name: Package
           path: staging
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
